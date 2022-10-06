@@ -261,14 +261,14 @@ export default function Home({ articles }) {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Feeling tired or stressed out? Get massages to your villa/hotel in
-            Canggu, Seminyak, Kuta.
+            Feeling tired and stressed out? Get massages instantly to your
+            villa/hotel in Bali.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Spencer, a software designer and entrepreneur based in New York
-            City. I’m the founder and CEO of Planetaria, where we develop
-            technologies that empower regular people to explore space on their
-            own terms.
+            With over 100 years of experience, get an authentic Balinese massage
+            in the comfort of your home with one of our professional therapists.
+            We offer a range of services to meet whatever needs you have and can
+            be booked in advance or on the day. 
           </p>
           <div className="flex gap-6 mt-6">
             <SocialLink
