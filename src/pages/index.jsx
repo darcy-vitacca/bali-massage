@@ -21,8 +21,6 @@ import logoAirbnb from '@/images/logos/airbnb.svg'
 import logoFacebook from '@/images/logos/facebook.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
 import logoStarbucks from '@/images/logos/starbucks.svg'
-import { generateRssFeed } from '@/lib/generateRssFeed'
-import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
 
 function MailIcon(props) {
@@ -246,7 +244,7 @@ function Photos() {
   )
 }
 
-export default function Home({ articles }) {
+export default function Home() {
   return (
     <>
       <Head>
@@ -268,8 +266,15 @@ export default function Home({ articles }) {
             With over 100 years of experience, get an authentic Balinese massage
             in the comfort of your home with one of our professional therapists.
             We offer a range of services to meet whatever needs you have and can
-            be booked in advance or on the day. 
+            be booked in advance or on the day.
           </p>
+          <Button
+            href="/services"
+            variant="primary"
+            className="w-full mt-6 text-xl group"
+          >
+            Book Today!
+          </Button>
           <div className="flex gap-6 mt-6">
             <SocialLink
               href="https://twitter.com"
@@ -297,31 +302,27 @@ export default function Home({ articles }) {
       <Photos />
       <Container className="mt-24 md:mt-28">
         <div className="grid max-w-xl grid-cols-1 mx-auto gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <div className="flex flex-col gap-16">
+          {/* <div className="flex flex-col gap-16">
             {articles.map((article) => (
               <Article key={article.slug} article={article} />
             ))}
-          </div>
-          <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Newsletter />
-            <Resume />
-          </div>
+          </div> */}
         </div>
       </Container>
     </>
   )
 }
 
-export async function getStaticProps() {
-  if (process.env.NODE_ENV === 'production') {
-    await generateRssFeed()
-  }
+// export async function getStaticProps() {
+//   if (process.env.NODE_ENV === 'production') {
+//     await generateRssFeed()
+//   }
 
-  return {
-    props: {
-      articles: (await getAllArticles())
-        .slice(0, 4)
-        .map(({ component, ...meta }) => meta),
-    },
-  }
-}
+//   // return {
+//   //   props: {
+//   //     articles: (await getAllArticles())
+//   //       .slice(0, 4)
+//   //       .map(({ component, ...meta }) => meta),
+//   //   },
+//   // }
+// }
